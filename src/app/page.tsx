@@ -1,11 +1,26 @@
-import React from 'react'
+import AboutSection from "@/components/about";
+import { HeroSection } from "@/components/hero";
+import { Navbar } from "@/components/navbar";
+import React from "react";
 
 const HomePage = () => {
   return (
-    <div>
-      Home Page
-    </div>
-  )
-}
+    <div
+      style={{
+        backgroundImage: "url('/hero-bg.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="relative">
+        <Navbar />
 
-export default HomePage
+        <HeroSection />
+        <AboutSection />
+      </div>
+    </div>
+  );
+};
+
+export default HomePage;
