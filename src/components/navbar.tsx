@@ -1,47 +1,37 @@
 "use client";
+
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
-import Link from "next/link";
 import { Button } from "./ui/button";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["600"], // medium-bold for professional look
+  weight: ["600"],
   display: "swap",
 });
 
-const navLinks = [
-  {
-    name: "Home",
-    id: "#home",
-  },
-  {
-    name: "About",
-    id: "#about",
-  },
-];
-
 export const Navbar = () => {
+  const navRef = useRef<HTMLElement | null>(null);
+
   useGSAP(() => {
     gsap.fromTo(
-      "navbar",
-      {
-        y: -100,
-      },
-      {
-        y: 0,
-      }
+      navRef.current,
+      { y: -100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
     );
   });
 
   return (
     <header
+      ref={navRef}
       id="navbar"
-      className="px-6 absolute top-0 left-0 w-full py-4 h-20  flex justify-between items-center border-b backdrop-blur-xl  bg-white/30"
+      className="fixed top-0 left-0 z-50 w-full px-6 py-4 h-20 flex justify-between items-center border-b backdrop-blur-xl bg-white/50 shadow-md"
     >
-      <div className="flex items-center gap-x-4">
+      {/* Logo + Name */}
+      <div className="flex items-center gap-x-3">
         <Image
           src="/gbh-logo.png"
           alt="Green Bell High Logo"
@@ -50,20 +40,21 @@ export const Navbar = () => {
           className="object-contain"
         />
         <h1
-          className={`${montserrat.className} text-2xl sm:text-3xl font-semibold text-gray-800`}
+          className={`${montserrat.className} text-xl sm:text-2xl font-semibold text-gray-800 whitespace-nowrap`}
         >
           Green Bell High
         </h1>
       </div>
 
-      <div className="flex justify-between items-center gap-x-5">
-        {navLinks.map((link) => (
-          <Link key={link.id} href={link.id} className="hover:underline">
-            {link.name}
-          </Link>
-        ))}
+      {/* Links */}
+      <nav className="hidden md:flex items-center gap-x-6 text-gray-700 text-sm sm:text-base font-medium"></nav>
+
+      {/* CTA Button */}
+      <div className="hidden sm:block">
+        <Button className="bg-green-600 hover:bg-green-700 text-white rounded-xl px-5 py-2 transition duration-300">
+          Contact Us
+        </Button>
       </div>
-      <Button>Contact Us</Button>
     </header>
   );
 };

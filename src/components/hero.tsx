@@ -51,7 +51,7 @@ export const HeroSection = () => {
           autoAlpha: 1,
           ease: "power3.out",
         },
-        "-=0.6" // small overlap if you want a smooth feel
+        "-=0.6"
       )
       .fromTo(
         "#hero-subtext",
@@ -66,7 +66,7 @@ export const HeroSection = () => {
           autoAlpha: 1,
           ease: "power3.out",
         },
-        "-=0.6" // small overlap if you want a smooth feel
+        "-=0.6"
       )
       .fromTo(
         "#hero-button",
@@ -81,45 +81,44 @@ export const HeroSection = () => {
           autoAlpha: 1,
           ease: "power3.out",
         },
-        "-=0.6" // small overlap if you want a smooth feel
+        "-=0.6"
       );
   }, []);
 
-  //   useEffect(() => {
-  //     const timeout = setTimeout(() => {
-  //       videoRef.current?.play();
-  //     }, 2000); // Delay video playback
-
-  //     return () => clearTimeout(timeout);
-  //   }, []);
-
   return (
-    <div className="flex justify-between p-10 items-center min-h-screen overflow-hidden">
-      <div className={`z-40 ${montserrat.className} px-3`}>
-        <h1 className="text-6xl font-bold invisible" id="hero-text">
+    <div className="relative flex flex-col lg:flex-row justify-between items-center min-h-screen px-10 py-12 md:py-24 overflow-hidden">
+      <div className={`z-40 ${montserrat.className} text-center lg:text-left`}>
+        <h1
+          className="text-4xl md:text-5xl lg:text-6xl font-bold invisible"
+          id="hero-text"
+        >
           A School in the Lap
-          <span className="flex mt-2">
+          <span className="flex justify-center lg:justify-start mt-2">
             of Nature
-            <IoIosLeaf className="text-green-500" />.
+            <IoIosLeaf className="text-green-500 ml-2 text-3xl size-10" />
           </span>
         </h1>
-        <p id="hero-subtext" className="text-xl text-gray-800 mt-4 invisible">
+        <p
+          id="hero-subtext"
+          className="text-lg sm:text-xl lg:text-2xl text-gray-800 mt-4 invisible"
+        >
           Shaping future-ready individuals through care, creativity, and
           character.
         </p>
         <div
-          className="h-20 flex justify-start items-end invisible"
+          className="h-20 flex justify-center lg:justify-start items-end invisible mt-8"
           id="hero-button"
         >
-          <Button className="w-1/2 h-14 text-lg cursor-pointer bg-green-600 hover:bg-green-700">
-            Explore <ArrowDownCircleIcon className="size-5" />
+          <Button className="w-full sm:w-1/2 lg:w-1/3 h-14 text-lg cursor-pointer bg-green-600 hover:bg-green-700 transition duration-300">
+            Explore <ArrowDownCircleIcon className="inline-block ml-2" />
           </Button>
         </div>
       </div>
-      <div className="h-full mt-10">
+
+      <div className="mt-10 lg:mt-0 w-full max-w-4xl">
         <div
           id="video"
-          className="overflow-hidden shadow-2xl rounded-lg w-[600px] invisible"
+          className="overflow-hidden shadow-2xl rounded-lg w-full invisible"
         >
           <video
             className="object-cover w-full h-full"
