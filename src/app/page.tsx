@@ -24,12 +24,12 @@ const HomePage = () => {
       >
         <div className="relative">
           <Navbar />
-          <div className="w-full flex justify-center items-center relative h-20">
+          <div className="w-full lg:hidden flex justify-center items-center relative h-20">
             <div className="absolute  bottom-0 translate-y-[50px] lg:hidden">
               <HangBoard />
             </div>
           </div>
-          <div className="pt-20 lg:pt-10">
+          <div className="pt-8">
             <HeroSection />
             <AboutSection />
             <PrincipalMessage />
