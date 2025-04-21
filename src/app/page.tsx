@@ -8,6 +8,7 @@ import WhyUsSection from "@/components/why-us-section";
 import React from "react";
 import GallerySection from "@/components/gallery-section";
 import PrincipalMessage from "@/components/principal-message";
+import { TestimonialSection } from "@/components/testimonials";
 
 const HomePage = () => {
   return (
@@ -28,6 +29,7 @@ const HomePage = () => {
             <PrincipalMessage />
             <Certifications />
             <WhyUsSection />
+            <TestimonialSection />
             <GallerySection />
           </div>
           <Footer />
