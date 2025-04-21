@@ -26,14 +26,16 @@ export const HeroSection = () => {
       "#video",
       {
         x: 100,
-        autoAlpha: 0,
+        opacity: 0,
       },
       {
         x: 0,
         duration: 1,
-        autoAlpha: 1,
+        opacity: 1,
         ease: "power3.out",
-        delay: 1, // delay before video animation starts
+        delay: 1,
+        onStart: () =>
+          document.getElementById("video")?.classList.remove("invisible"),
       }
     )
       .fromTo(
@@ -92,29 +94,23 @@ export const HeroSection = () => {
   //   }, []);
 
   return (
-    <div
-      
-      className="flex justify-between p-10 items-center min-h-screen overflow-hidden"
-    >
+    <div className="flex justify-between p-10 items-center min-h-screen overflow-hidden">
       <div className={`z-40 ${montserrat.className} px-3`}>
-        <div className="">
-          <h1
-            className=" text-6xl font-bold"
-            id="hero-text"
-            style={{ visibility: "hidden" }} // Hide until GSAP animates in
-          >
-            A School in the Lap
-            <span className="flex mt-2">
-              of Nature
-              <IoIosLeaf className="text-green-500" />.
-            </span>
-          </h1>
-          <p id="hero-subtext" className="text-xl text-gray-800 mt-4">
-            Shaping future-ready individuals through care, creativity, and
-            character.
-          </p>
-        </div>
-        <div className="h-20 flex justify-start items-end" id="hero-button">
+        <h1 className="text-6xl font-bold invisible" id="hero-text">
+          A School in the Lap
+          <span className="flex mt-2">
+            of Nature
+            <IoIosLeaf className="text-green-500" />.
+          </span>
+        </h1>
+        <p id="hero-subtext" className="text-xl text-gray-800 mt-4 invisible">
+          Shaping future-ready individuals through care, creativity, and
+          character.
+        </p>
+        <div
+          className="h-20 flex justify-start items-end invisible"
+          id="hero-button"
+        >
           <Button className="w-1/2 h-14 text-lg cursor-pointer bg-green-600 hover:bg-green-700">
             Explore <ArrowDownCircleIcon className="size-5" />
           </Button>
@@ -123,8 +119,7 @@ export const HeroSection = () => {
       <div className="h-full mt-10">
         <div
           id="video"
-          className="overflow-hidden shadow-2xl rounded-lg w-[600px]"
-          style={{ visibility: "hidden" }} // Hide until animation
+          className="overflow-hidden shadow-2xl rounded-lg w-[600px] invisible"
         >
           <video
             className="object-cover w-full h-full"
