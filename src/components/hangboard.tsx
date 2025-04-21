@@ -1,19 +1,36 @@
 "use client";
 
-import { PhoneCallIcon } from "lucide-react";
 import React from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export const HangBoard = () => {
+  useGSAP(() => {
+    gsap.fromTo(
+      "#hangboard",
+      {
+        y: -200,
+      },
+      {
+        y: 0,
+        delay: 2,
+      }
+    );
+  });
+
   return (
-    <div className="relative flex justify-center items-center w-[100px] h-[40px] lg:w-[140px] lg:h-[60px]">
+    <div
+      id="hangboard"
+      className="relative flex justify-center items-center w-[150px] sm:w-[150px] h-[40px] sm:h-[40px]"
+    >
       {/* Board */}
-      <div className="w-full h-[40px] bg-yellow-300 text-black font-bold text-sm flex flex-col items-center justify-center rounded shadow-lg relative z-10 rotate-[-2deg] animate-hang-board border border-yellow-400">
-        Admissions Open <PhoneCallIcon className="size-3" />
+      <div className="w-full h-full bg-yellow-300 text-black font-bold text-xs sm:text-sm flex items-center justify-center gap-1 px-2 rounded shadow-lg relative z-10 rotate-[-2deg] animate-hang-board border border-yellow-400 transition-transform hover:scale-105">
+        <span>Admissions Open</span>
       </div>
 
       {/* Strings */}
-      <div className="absolute top-[-10px] left-3 w-0.5 h-3 bg-black z-0"></div>
-      <div className="absolute top-[-10px] right-3 w-0.5 h-3 bg-black z-0"></div>
+      <div className="absolute top-[-10px] left-3 w-0.5 h-3 bg-black z-0" />
+      <div className="absolute top-[-10px] right-3 w-0.5 h-3 bg-black z-0" />
 
       {/* Hook or Nail */}
       <svg

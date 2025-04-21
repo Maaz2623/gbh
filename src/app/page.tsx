@@ -9,6 +9,7 @@ import React from "react";
 import GallerySection from "@/components/gallery-section";
 import PrincipalMessage from "@/components/principal-message";
 import { TestimonialSection } from "@/components/testimonials";
+import { HangBoard } from "@/components/hangboard";
 
 const HomePage = () => {
   return (
@@ -23,6 +24,11 @@ const HomePage = () => {
       >
         <div className="relative">
           <Navbar />
+          <div className="w-full flex justify-center items-center relative h-20">
+            <div className="absolute  bottom-0 translate-y-[50px] lg:hidden">
+              <HangBoard />
+            </div>
+          </div>
           <div className="pt-20 lg:pt-10">
             <HeroSection />
             <AboutSection />

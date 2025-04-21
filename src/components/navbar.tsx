@@ -51,7 +51,7 @@ export const Navbar = () => {
         <nav className="flex items-center gap-x-6 text-gray-700 text-sm sm:text-base font-medium"></nav>
 
         {/* CTA Button */}
-        <div>
+        <div className="lg:flex hidden">
           <HangBoard />
         </div>
       </header>
