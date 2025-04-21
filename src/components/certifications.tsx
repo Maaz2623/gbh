@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,31 +13,37 @@ const certifications = [
     title: "CBSE Approval",
     description:
       "Officially affiliated with the Central Board of Secondary Education (CBSE), ensuring curriculum excellence and national academic standards.",
+    url: "/docs/CBSE-approvalcard-1.pdf",
   },
   {
     title: "Registration Certificate",
     description:
       "Proof of our school’s legal recognition and registration under the Education Act, verifying our commitment to authentic academic operations.",
+    url: "/docs/registration.pdf",
   },
   {
     title: "NOC Certificate",
     description:
       "A No Objection Certificate (NOC) granted by the State Education Department allowing us to operate under CBSE regulations.",
+    url: "/docs/noc.pdf",
   },
   {
     title: "Building Safety Certificate",
     description:
       "Issued by the local municipal authority, this certificate ensures that our campus infrastructure is secure and adheres to safety norms.",
+    url: "/docs/building-safety.pdf",
   },
   {
     title: "Fire Safety Certificate",
     description:
       "Certified by the Fire Department, verifying that our school is fully equipped with fire extinguishers, alarms, and evacuation procedures.",
+    url: "/docs/fire-safety.pdf",
   },
   {
     title: "DEO Certificate",
     description:
       "District Education Officer’s certification validating our school’s academic and operational standards for district-level compliance.",
+    url: "/docs/deo.pdf",
   },
 ];
 
@@ -119,7 +126,9 @@ const Certifications = () => {
           >
             <h3 className="text-xl font-semibold mb-2">{cert.title}</h3>
             <p className="text-gray-600 mb-4">{cert.description}</p>
-            <Button>Open</Button>
+            <Button asChild>
+              <Link href={cert.url}>Open</Link>
+            </Button>
           </div>
         ))}
       </div>
