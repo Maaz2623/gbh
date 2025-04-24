@@ -56,9 +56,12 @@ const Footer = () => {
       {/* Footer Bottom Section */}
       <div className="bg-gray-700 py-4 text-center mt-8">
         <p className="text-sm">
-          Copyright © 2025 Green Bell High | Powered by{" "}
-          <a href="https://brandtox.com" className="text-green-400">
-            BrandTox.com
+          Copyright © 2025 Green Bell High | Developed by{" "}
+          <a
+            href="https://www.linkedin.com/in/mohammed-maaz-70310b291/"
+            className="text-green-400"
+          >
+            Mohammed Maaz
           </a>
         </p>
       </div>
