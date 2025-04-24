@@ -10,9 +10,7 @@ import {
   AlertDialogCancel,
 } from "@/components/ui/alert-dialog";
 import { FaWhatsapp } from "react-icons/fa";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone } from "lucide-react";
 
 interface ContactDialogProps {
