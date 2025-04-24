@@ -38,6 +38,22 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script id="google-ads-conversion" strategy="afterInteractive">
+          {`
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-11487021666/UcuJCKDl-5kZEOKUuOUq',
+          'event_callback': callback
+      });
+      return false;
+    }
+  `}
+        </Script>
         <link rel="icon" type="image/png" href="/favicon.png" />
       </head>
       <body className={`${poppins.className} antialiased`}>{children}</body>

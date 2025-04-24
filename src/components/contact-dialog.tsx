@@ -19,6 +19,10 @@ interface ContactDialogProps {
 }
 
 export const ContactDialog = ({ open, setOpen }: ContactDialogProps) => {
+  function gtag_report_conversion() {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogContent className="max-w-md">
@@ -34,7 +38,15 @@ export const ContactDialog = ({ open, setOpen }: ContactDialogProps) => {
           <Button
             variant="outline"
             className="flex gap-2 items-center"
-            onClick={() => window.open("https://wa.me/917411011354", "_blank")}
+            onClick={() => {
+              if (
+                typeof window !== "undefined" &&
+                typeof gtag_report_conversion === "function"
+              ) {
+                gtag_report_conversion();
+              }
+              window.open("https://wa.me/917411011354", "_blank");
+            }}
           >
             <FaWhatsapp className="size-4 text-green-500" />
             WhatsApp
@@ -42,7 +54,15 @@ export const ContactDialog = ({ open, setOpen }: ContactDialogProps) => {
           <Button
             variant="outline"
             className="flex gap-2 items-center"
-            onClick={() => (window.location.href = "tel:+9108971576866")}
+            onClick={() => {
+              if (
+                typeof window !== "undefined" &&
+                typeof gtag_report_conversion === "function"
+              ) {
+                gtag_report_conversion();
+              }
+              window.location.href = "tel:+9108971576866";
+            }}
           >
             <Phone className="h-4 w-4" />
             Call Now
